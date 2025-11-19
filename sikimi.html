@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>四季美湖釣獲調査結果｜令和7年5月10日</title>
+  <style>
+    body {
+      font-family: "メイリオ", sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      padding: 20px;
+      line-height: 1.8;
+    }
+
+    h1, h2 {
+      color: #2d7b88;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .thumb-box {
+      border: 2px solid #2d7b88;
+      border-radius: 10px;
+      background-color: #ffffff;
+      padding: 10px;
+      width: 180px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .thumb-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 1px solid #ccc;
+    }
+
+    .thumb-box img:hover {
+      border-color: #2d7b88;
+    }
+
+    .caption {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-box {
+      position: relative;
+      display: inline-block;
+      max-width: 90%;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    .modal-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.8rem;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      line-height: 34px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .close-button:hover {
+      background-color: red;
+    }
+
+    .modal-caption {
+      color: #333;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      margin-top: 15px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #e1eff2;
+    }
+
+    ul {
+      padding-left: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>四季美湖釣獲調査結果｜令和7年5月10日</h1>
+  <div class="image-gallery">
+    <div class="thumb-box">
+      <img src="2025sikimiko/2025-5-10-5-1.jpg" alt="画像1" onclick="openModal(this.src, '大橋から上流側のバックウォーター付近で多くのヒット')">
+      <p class="caption">大橋から上流側のバックウォーター付近で多くのヒット</p>
+    </div>
+    <div class="thumb-box">
+      <img src="2025sikimiko/2025-5-10-5-2.jpg" alt="画像2" onclick="openModal(this.src, '大橋から下流側')">
+      <p class="caption">大橋から下流側ではヒットなく今後の調査課題</p>
+    </div>
+    <div class="thumb-box">
+      <img src="2025sikimiko/2025-5-10-5-3.jpg" alt="画像3" onclick="openModal(this.src, 'この日の釣獲魚サクラマス１１尾')">
+      <p class="caption">この日の釣獲魚銀毛化したヤマメ（サクラマス）１１尾</p>
+    </div>
+    <div class="thumb-box">
+      <img src="2025sikimiko/2025-5-10-5-5.jpg" alt="画像5" onclick="openModal(this.src, 'この日の最大は400ｍｍ、752ｇ')">
+      <p class="caption">この日の釣獲魚１１尾中　最大は　400ｍｍ、752ｇ</p>
+    </div>
+  </div>
+
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-box">
+      <button class="close-button" onclick="closeModal(event)">×</button>
+      <img id="modalImage" src="" alt="拡大画像">
+      <p id="modalCaption" class="modal-caption"></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>調査概要</h2>
+    <ul>
+      <li><strong>実施日：</strong>令和7年5月10日（土）</li>
+      <li><strong>調査時間：</strong>午前9時 ～ 正午</li>
+      <li><strong>天候・水温・気温：</strong>雨、水温12.1℃　気温18.5℃（正午時点）</li>
+      <li><strong>使用船舶：</strong>アルミ製ボート（12フィート）2.5馬力</li>
+      <li><strong>調査範囲：</strong>四季美湖全域（特に大橋より上流域）</li>
+      <li><strong>備考：</strong>バックウォーター付近でヒット多数</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>釣獲結果（サクラマス 11尾）</h2>
+    <table>
+      <thead>
+        <tr><th>No.</th><th>全長（mm）</th><th>体重（g）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>400</td><td>752</td></tr>
+        <tr><td>2</td><td>345</td><td>424</td></tr>
+        <tr><td>3</td><td>285</td><td>240</td></tr>
+        <tr><td>4</td><td>295</td><td>224</td></tr>
+        <tr><td>5</td><td>290</td><td>243</td></tr>
+        <tr><td>6</td><td>265</td><td>193</td></tr>
+        <tr><td>7</td><td>265</td><td>173</td></tr>
+        <tr><td>8</td><td>225</td><td>106</td></tr>
+        <tr><td>9</td><td>245</td><td>155</td></tr>
+        <tr><td>10</td><td>245</td><td>134</td></tr>
+        <tr><td>11</td><td>247</td><td>154</td></tr>
+		<tr>
+      <td colspan="3" style="text-align: center;">
+        <img src="2025sikimiko/sikimikomap.jpg" alt="釣獲ポイントマップ" width="720" height="488"
+             style="max-width: 100%; height: auto; cursor: pointer; border: 1px solid #ccc; border-radius: 5px;"
+             onclick="openModal('2025sikimiko/sikimikomap.jpg', '釣獲ポイントマップ')">
+      </td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>所見</h2>
+    <p>
+      銀毛化したヤマメ（サクラマス）の釣果は、四季美湖の上流部に集中し、特にバックウォーター周辺でヒット数・取り込み数ともに多く確認されました。最大個体は全長400mm・体重752gで、いずれも銀毛を帯びた成熟個体が中心でした。今後も継続調査を通じた資源把握が期待されます。
+    </p>
+  </div>
+
+  <script>
+    function openModal(src, captionText) {
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modalImage');
+      const modalCap = document.getElementById('modalCaption');
+      modal.style.display = 'flex';
+      modalImg.src = src;
+      modalCap.textContent = captionText;
+    }
+
+    function closeModal(event) {
+      const modal = document.getElementById('modal');
+      if (event.target === modal || event.target.classList.contains('close-button')) {
+        modal.style.display = 'none';
+        document.getElementById('modalImage').src = '';
+        document.getElementById('modalCaption').textContent = '';
+      }
+    }
+  </script>
+</body>
+</html>
